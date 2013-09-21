@@ -32,6 +32,7 @@
             [testObject setObject:((NSString*)person[@"Last"]).lowercaseString forKey:@"lastname"];
             [testObject setObject:[NSString stringWithFormat:@"%@ %@", ((NSString*)person[@"First"]).lowercaseString, ((NSString*)person[@"Last"]).lowercaseString] forKey:@"fullname"];
             [testObject setObject:person[@"Phone"][0] forKey:@"number"];
+            [testObject setObject:@(0) forKey:@"strength"];
             
             if(person[@"Email"][0]){
                 [testObject setObject:person[@"Email"][0] forKey:@"email"];
@@ -41,6 +42,8 @@
                 if(error){
                     NSLog(@"error saving %@ : %@", testObject, error);
                     errorVal = error;
+                } else{
+                    NSLog(@"pushed all contacts");
                 }
             }];
         }
