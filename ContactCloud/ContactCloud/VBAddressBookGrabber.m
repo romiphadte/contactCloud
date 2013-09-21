@@ -57,7 +57,7 @@ const ABPropertyID kABPersonIDProperty = 0xBE76;
     return grabbedProperties;
 }
 
-- (id)grabProperty:(ABPropertyID)property fromPerson:(ABRecordRef)person {    
+- (id)grabProperty:(ABPropertyID)property fromPerson:(ABRecordRef)person {
     if (ABPersonGetTypeOfProperty(property) & kABMultiValueMask) {
         return [self grabMultiValueProperty:property fromPerson:person];
     } else {
@@ -106,33 +106,33 @@ const ABPropertyID kABPersonIDProperty = 0xBE76;
 
 + (NSArray *)allProperties {
     return @[
-        @(kABPersonIDProperty),
-        @(kABPersonFirstNameProperty),
-        @(kABPersonLastNameProperty),
-        @(kABPersonMiddleNameProperty),
-        @(kABPersonPrefixProperty),
-        @(kABPersonSuffixProperty),
-        @(kABPersonNicknameProperty),
-        @(kABPersonFirstNamePhoneticProperty),
-        @(kABPersonLastNamePhoneticProperty),
-        @(kABPersonMiddleNamePhoneticProperty),
-        @(kABPersonOrganizationProperty),
-        @(kABPersonJobTitleProperty),
-        @(kABPersonDepartmentProperty),
-        @(kABPersonEmailProperty),
-        @(kABPersonBirthdayProperty),
-        @(kABPersonNoteProperty),
-        @(kABPersonCreationDateProperty),
-        @(kABPersonModificationDateProperty),
-        @(kABPersonAddressProperty),
-        @(kABPersonDateProperty),
-        @(kABPersonKindProperty),
-        @(kABPersonPhoneProperty),
-        @(kABPersonInstantMessageProperty),
-        @(kABPersonURLProperty),
-        @(kABPersonRelatedNamesProperty),
-        @(kABPersonSocialProfileProperty),
-    ];
+             @(kABPersonIDProperty),
+             @(kABPersonFirstNameProperty),
+             @(kABPersonLastNameProperty),
+             @(kABPersonMiddleNameProperty),
+             @(kABPersonPrefixProperty),
+             @(kABPersonSuffixProperty),
+             @(kABPersonNicknameProperty),
+             @(kABPersonFirstNamePhoneticProperty),
+             @(kABPersonLastNamePhoneticProperty),
+             @(kABPersonMiddleNamePhoneticProperty),
+             @(kABPersonOrganizationProperty),
+             @(kABPersonJobTitleProperty),
+             @(kABPersonDepartmentProperty),
+             @(kABPersonEmailProperty),
+             @(kABPersonBirthdayProperty),
+             @(kABPersonNoteProperty),
+             @(kABPersonCreationDateProperty),
+             @(kABPersonModificationDateProperty),
+             @(kABPersonAddressProperty),
+             @(kABPersonDateProperty),
+             @(kABPersonKindProperty),
+             @(kABPersonPhoneProperty),
+             @(kABPersonInstantMessageProperty),
+             @(kABPersonURLProperty),
+             @(kABPersonRelatedNamesProperty),
+             @(kABPersonSocialProfileProperty),
+             ];
 }
 
 + (NSDictionary *)localizedPropertyNames {
@@ -148,9 +148,6 @@ const ABPropertyID kABPersonIDProperty = 0xBE76;
     }
     
     return names;
- 
- 
 }
 
-
- @end
+@end
