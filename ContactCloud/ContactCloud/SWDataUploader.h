@@ -11,6 +11,6 @@
 @interface SWDataUploader : NSObject
 
 -(SWDataUploader*)init;
--(void)uploadAddressBookWithCompletion:(void(^)(NSError*))completionBlock;
+-(void)uploadAddressBookWithCompletion:(void(^)(NSError*, NSArray*))completionBlock;
 
 @end

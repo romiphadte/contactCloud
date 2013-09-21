@@ -21,12 +21,14 @@
 {
     [super viewDidLoad];
     
-    SWDataUploader *uploader = [[SWDataUploader alloc] init];
-    [uploader uploadAddressBookWithCompletion:^(NSError *error) {
-        if(error){
-            NSLog(@"error: %@", error);
-        }
-    }];
+//    SWDataUploader *uploader = [[SWDataUploader alloc] init];
+//    [uploader uploadAddressBookWithCompletion:^(NSError *error, NSArray *addressBook) {
+//        if(error){
+//            NSLog(@"error: %@", error);
+//        } else{
+//            NSLog(@"success loading!");
+//        }
+//    }];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

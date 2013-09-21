@@ -20,7 +20,7 @@
 
 
 
--(void)uploadAddressBookWithCompletion:(void(^)(NSError*))completionBlock{
+-(void)uploadAddressBookWithCompletion:(void(^)(NSError*, NSArray*))completionBlock{
     
     NSArray* addressBook = [self.grabber getAddressBook];
     
@@ -42,14 +42,12 @@
                 if(error){
                     NSLog(@"error saving %@ : %@", testObject, error);
                     errorVal = error;
-                } else{
-                    NSLog(@"pushed all contacts");
                 }
             }];
         }
     }
     
-    completionBlock(errorVal);
+    completionBlock(errorVal, addressBook);
 }
 
 -(SWDataUploader*)init{

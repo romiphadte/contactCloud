@@ -10,4 +10,22 @@
 
 @interface SWDataManager : NSObject
 
+@property (nonatomic, strong) NSMutableArray *contactsList;
+
+#pragma -mark Uploader Methods
+-(void)handleStartUpload;
+
+#pragma -mark Downloader Methods
+
+#pragma -mark General Methods
+-(BOOL)writeContactsToFile;
+-(NSArray*)readContactsFromFile;
+
++(NSString*)filepath:(NSString*)file;
+
+
+#pragma -mark Singleton Methods
++(SWDataManager*)setupInstance;
++(SWDataManager*)sharedInstance;
+
 @end

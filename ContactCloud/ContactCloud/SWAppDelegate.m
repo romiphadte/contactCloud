@@ -7,12 +7,16 @@
 //
 
 #import "SWAppDelegate.h"
+#import "SWDataManager.h"
 #import <Parse/Parse.h>
 
 @implementation SWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [SWDataManager setupInstance];
+    [[SWDataManager sharedInstance] handleStartUpload];
+    
     [Parse setApplicationId:@"Xiosij1pA3HPiCSOmIBwcvVF9PQfMjR77JFu6G9P"
                   clientKey:@"2LkzEQDilncJr78zi7PRBKCcgBQZnqQ1P8zzytad"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
