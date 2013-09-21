@@ -28,9 +28,9 @@
     for (NSDictionary *person in addressBook) {
         PFObject *testObject = [PFObject objectWithClassName:@"People"];
         if(person[@"First"] && person[@"Last"] && person[@"Phone"][0]){
-            [testObject setObject:person[@"First"] forKey:@"firstname"];
-            [testObject setObject:person[@"Last"] forKey:@"lastname"];
-            [testObject setObject:[NSString stringWithFormat:@"%@ %@", person[@"First"], person[@"Last"]] forKey:@"fullname"];
+            [testObject setObject:((NSString*)person[@"First"]).lowercaseString forKey:@"firstname"];
+            [testObject setObject:((NSString*)person[@"Last"]).lowercaseString forKey:@"lastname"];
+            [testObject setObject:[NSString stringWithFormat:@"%@ %@", ((NSString*)person[@"First"]).lowercaseString, ((NSString*)person[@"Last"]).lowercaseString] forKey:@"fullname"];
             [testObject setObject:person[@"Phone"][0] forKey:@"number"];
             
             if(person[@"Email"][0]){
