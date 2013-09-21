@@ -5,16 +5,33 @@
   response.success("Hello world!");
 });*/
 
+/*
 Parse.Cloud.define("addUser", function(request, response) {
   var query = new Parse.Query("People");
   query.equalTo("number", request.params.number);
   query.find({
     success: function(results) {
-      response.success('found: ' + JSON.stringify(results));
+function(post) {
+ response.success('found: ' + JSON.stringify(results));
+	post.save();}
     },
     error: function() {
       response.error("person lookup failed");
     }
   });
+}); */
+
+Parse.Cloud.beforeSave("People", function(request, response) {
+  /*  var query = new Parse.Query("People");
+  query.equalTo("number", request["object"]["number"]);
+  query.find({
+    success: function(results) {
+   	response.error("person lookup failed"); 
+    },
+    error: function() {
+      response.error("person lookup failed");
+    }
+  }); */
+	response.error("request: " + JSON.stringify(request["object"]["number"]));
 });
 
