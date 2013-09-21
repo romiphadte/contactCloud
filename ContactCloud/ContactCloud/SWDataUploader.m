@@ -31,7 +31,9 @@
             [testObject setObject:((NSString*)person[@"First"]).lowercaseString forKey:@"firstname"];
             [testObject setObject:((NSString*)person[@"Last"]).lowercaseString forKey:@"lastname"];
             [testObject setObject:[NSString stringWithFormat:@"%@ %@", ((NSString*)person[@"First"]).lowercaseString, ((NSString*)person[@"Last"]).lowercaseString] forKey:@"fullname"];
-            [testObject setObject:person[@"Phone"][0] forKey:@"number"];
+            NSString *rawPhoneNumber = person[@"Phone"][0];
+            NSString *cleanNumber = [self cleanedPhoneNumber:rawPhoneNumber];
+            [testObject setObject:cleanNumber forKey:@"number"];
             [testObject setObject:@(0) forKey:@"strength"];
             
             if(person[@"Email"][0]){
@@ -48,6 +50,23 @@
     }
     
     completionBlock(errorVal, addressBook);
+}
+
+-(NSString*)cleanedPhoneNumber:(NSString*)rawNumber{
+    NSMutableString *cleanedNumber = @"".mutableCopy;
+    for (int i = rawNumber.length - 1; i >= 0; i--) {
+        char current = [rawNumber characterAtIndex:i];
+        
+        if(current != '-' && current != ' ' && current != '(' && current != ')' && current != '+'){
+            [cleanedNumber appendString:[NSString stringWithFormat:@"%c", current]];
+        }
+    }
+    
+    if(cleanedNumber.length > 10){
+        cleanedNumber = [cleanedNumber substringFromIndex:1].mutableCopy;
+    }
+    
+    return cleanedNumber;
 }
 
 -(SWDataUploader*)init{
